@@ -5,7 +5,7 @@ import { Component } from "react";
 import { Image, Linking, View } from "react-native";
 
 const Header = ({ title, tag }) => (
-  <View>
+  <View style={{height:50}}>
     <Text
       category="h6"
       style={{
@@ -23,9 +23,10 @@ const Header = ({ title, tag }) => (
 
 const Footer = ({ href }) => (
   <Layout
-    style={{ justifyContent: "center", alignItems: "flex-end", padding: 10 }}
+    style={{ justifyContent: "center", alignItems: "flex-end", height: 75, margin:0, padding:0,paddingHorizontal:10}}
   >
     <Button
+      style={{height: 50, justifyContent:'flex-end'}}
       onPress={() => {
         Linking.openURL(href);
       }}
@@ -47,6 +48,7 @@ export default class ProjectCard extends Component {
           height: 300,
           borderRadius: 25,
         }}
+
         header={(prop) => (
           <Header
             title={this.props.project.title}
@@ -55,7 +57,7 @@ export default class ProjectCard extends Component {
         )}
         footer={(prop) => <Footer href={this.props.project.href} />}
       >
-        <Layout style={{height:'100%'}}>
+        <Layout style={{height:135}}>
           <Text>{this.props.project.description}</Text>
           {this.props.project.image_href !== "" ? (
           <Image
